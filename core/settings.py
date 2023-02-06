@@ -47,6 +47,7 @@ DJANGO_APPS = [
 
 PROJECT_APPS = [
     'apps.polls',
+    'apps.category',
 ]
 
 THIRD_PARTY_APPS = [
