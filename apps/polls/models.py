@@ -11,6 +11,8 @@ from apps.category.models import Category
 def question_directory_path(instance, filename):
     return 'question/{0}/{1}'.format(instance.slug, filename)
 
+# Make question_uuid the primary key of the model Question for production,
+# the same with choice_uuid for the model Choice !!!!! IMPORTANT !!!!
 
 class Question(models.Model):
     question_uuid = models.UUIDField(default=uuid.uuid4, unique=True)
