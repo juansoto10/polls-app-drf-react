@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import Home from 'containers/pages/Home';
+import Error404 from 'containers/errors/Error404';
+
+import store from './store';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import Polls from 'containers/pages/polls/Polls';
+import PollsQuestion from 'containers/pages/polls/PollsQuestion'
+import PollsCategory from 'containers/pages/polls/category/PollsCategory';
+
+import Search from 'containers/pages/Search';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Router>
+        <Routes>
+          {/* Error display */}
+          <Route path="*" element={<Error404/>} />
+
+          {/* Home display */}
+          <Route path="/" element={<Home/>} />
+
+          <Route path="/polls" element={<Polls/>} />
+          <Route path="/polls/question/:slug" element={<PollsQuestion />} />
+          <Route path="/polls/categories/:category_id" element={<PollsCategory/>}/>
+
+          <Route path="/search/:term" element={<Search/>}/>
+        </Routes>
+      </Router>
+    </Provider>
   );
 }
 

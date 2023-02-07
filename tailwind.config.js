@@ -14,11 +14,11 @@ module.exports = {
         'dark-txt': '#c1c1c1',
         'dark': '#1C1D1F',
         'fb-gray': '#f0f2f5',
-        'morado': '#7C24D9',
+        'purple': '#7C24D9',
         'gray-footer-500': '#1C1D1F',
         'search': '#F7F9FA',
         'careers': '#FEF9F5',
-        
+        'ivory': '#F4F7F0',
       },
       keyframes: {
         wiggle: {
