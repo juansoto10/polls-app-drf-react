@@ -43,8 +43,8 @@ class QuestionListCategoryView(APIView):
         
         
 class QuestionDetailView(APIView):
-    def get(self, request, question_uuid, format=None):
-        question = get_object_or_404(Question, question_uuid=question_uuid)
+    def get(self, request, question_slug, format=None):
+        question = get_object_or_404(Question, slug=question_slug)
         question_serializer = QuestionSerializer(question)
         
         choices = Choice.objects.all().filter(question=question)

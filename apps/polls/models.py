@@ -9,12 +9,13 @@ from apps.category.models import Category
 
 
 def question_directory_path(instance, filename):
-    return 'question/{0}/{1}'.format(instance.question_uuid, filename)
+    return 'question/{0}/{1}'.format(instance.slug, filename)
 
 
 class Question(models.Model):
     question_uuid = models.UUIDField(default=uuid.uuid4, unique=True)
     question_text = models.CharField(max_length=280)
+    slug =          models.SlugField(unique=True)
     thumbnail =     models.ImageField(upload_to=question_directory_path)
     category =      models.ForeignKey(Category, on_delete=models.PROTECT)
     published =     models.DateTimeField(default=timezone.now)

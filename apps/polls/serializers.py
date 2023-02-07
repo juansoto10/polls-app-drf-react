@@ -12,6 +12,7 @@ class QuestionSerializer(serializers.ModelSerializer):
         fields = [
             'question_uuid',
             'question_text',
+            'slug',
             'thumbnail',
             'category',
             'published',
