@@ -64,7 +64,7 @@ class SearchQuestionView(APIView):
         paginator = MediumSetPagination
         # results = paginator.paginate_queryset(matches, request)
         serializer = QuestionSerializer(matches, many=True)
-        return Response({'filtered_questions': serializer.data}, status=status.HTTP_200_OK)  
+        return Response({'filtered_polls': serializer.data}, status=status.HTTP_200_OK)  
     
     
 # Solve number of votes in each question ASAP (I think it has to be through React or something) !!!!!!!  

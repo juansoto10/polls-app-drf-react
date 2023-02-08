@@ -19,6 +19,8 @@ module.exports = {
         'search': '#F7F9FA',
         'careers': '#FEF9F5',
         'ivory': '#F4F7F0',
+        'green': 'rgb(45 212 191);',
+        'misty': '#BFD2D0'
       },
       keyframes: {
         wiggle: {

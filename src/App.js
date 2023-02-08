@@ -17,16 +17,16 @@ function App() {
       <Router>
         <Routes>
           {/* Error display */}
-          <Route path="*" element={<Error404/>} />
+          <Route path="*" element={<Error404 />} />
 
           {/* Home display */}
-          <Route path="/" element={<Home/>} />
+          <Route path="/" element={<Home />} />
 
           <Route path="/polls" element={<Polls/>} />
           <Route path="/polls/question/:slug" element={<PollsQuestion />} />
-          <Route path="/polls/categories/:category_id" element={<PollsCategory/>}/>
+          <Route path="/polls/categories/:category_id" element={<PollsCategory />} />
 
-          <Route path="/search/:term" element={<Search/>}/>
+          <Route path="/search/:term" element={<Search />}/>
         </Routes>
       </Router>
     </Provider>

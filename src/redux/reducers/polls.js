@@ -71,7 +71,7 @@ export default function poll(state = initialState, action) {
         case GET_SEARCH_POLL_SUCCESS:
             return {
                 ...state,
-                filtered_polls: payload.filtered_questions
+                filtered_polls: payload.filtered_polls
             }
         case GET_SEARCH_POLL_FAIL:
             return {
