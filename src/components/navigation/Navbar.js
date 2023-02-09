@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom'
 
 
 const navigation = [
-  { name: 'Categories', href: '/categories', current: true },
+  { name: 'Categories', href: '/polls/categories', current: true },
   { name: 'About', href: '/about', current: false },
 ]
 
@@ -52,8 +52,8 @@ function Navbar() {
                 <div className="flex-shrink-0 flex items-center">
                   <NavLink to="/polls">
                     <img
-                      className="block h-8 w-auto rounded-full"
-                      src="https://i.postimg.cc/qMz30bMM/jeanne1-square.jpg"
+                      className="block h-10 w-auto rounded-full"
+                      src="https://i.postimg.cc/vTQHFmJ6/tech1.png"
                       alt="Logo"
                     />
                   </NavLink>
@@ -78,7 +78,7 @@ function Navbar() {
                         required
                         onChange={(e) => {handleChange(e)}}
                         className="block w-full bg-white border border-gray-300 rounded-md py-2 pl-10 pr-3 text-sm placeholder-gray-500 focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-green sm:text-sm"
-                        placeholder="Search"
+                        placeholder="Search question"
                         type="search"
                       />
                     </div>

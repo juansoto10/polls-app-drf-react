@@ -26,9 +26,9 @@ function CategoriesSmallSetPagination({ get_polls_list_page, polls_list, count, 
   const next_number = () => {
     // window.scrollTo(0, 0);
     if (currentPage !== Math.ceil(polls_list.length / 3)) {
-        setCurrentPage(currentPage+1);
-        setActive(currentPage+1);
-        get_polls_list_page(category_id, currentPage + 1)
+      setCurrentPage(currentPage+1);
+      setActive(currentPage+1);
+      get_polls_list_page(category_id, currentPage + 1)
     }
   };
 

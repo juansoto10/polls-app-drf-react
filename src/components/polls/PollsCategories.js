@@ -12,12 +12,9 @@ function PollsCategories ({ get_categories, categories }) {
   return (
     <div>
       <div className="bg-white">
-        <div className="py-8 sm:py-10 xl:max-w-7xl xl:mx-auto xl:px-8">
+        <div className="py-0 sm:py-0 xl:max-w-7xl xl:mx-auto xl:px-8">
           <div className="px-4 sm:px-6 sm:flex sm:items-center sm:justify-between lg:px-8 xl:px-0">
-            <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">View Categories</h2>
-              <Link to="#" className="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block">
-                Browse all categories<span aria-hidden="true"> &rarr;</span>
-              </Link>
+            <h2 className="text-2xl font-extrabold tracking-tight text-purple">View Categories</h2>
           </div>
           <div className="mt-4 flow-root">
             <div className="-my-2">
