@@ -6,7 +6,9 @@ import {
     GET_POLLS_LIST_CATEGORIES_SUCCESS,
     GET_POLLS_LIST_CATEGORIES_FAIL,
     GET_SEARCH_POLL_SUCCESS,
-    GET_SEARCH_POLL_FAIL
+    GET_SEARCH_POLL_FAIL,
+    /* GET_CHOICES_SUCCESS,
+    GET_CHOICES_FAIL */
 } from '../actions/types';
 
 const initialState = {
@@ -68,6 +70,16 @@ export default function poll(state = initialState, action) {
                 post: null,
                 choices: null
             }
+        /* case GET_CHOICES_SUCCESS:
+            return {
+                ...state,
+                choices: payload.choices
+            }
+        case GET_CHOICES_FAIL:
+            return {
+                ...state,
+                choices: null
+            } */
         case GET_SEARCH_POLL_SUCCESS:
             return {
                 ...state,

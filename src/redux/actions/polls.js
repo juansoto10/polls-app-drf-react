@@ -7,7 +7,9 @@ import {
   GET_POLLS_LIST_CATEGORIES_SUCCESS,
   GET_POLLS_LIST_CATEGORIES_FAIL,
   GET_SEARCH_POLL_SUCCESS,
-  GET_SEARCH_POLL_FAIL
+  GET_SEARCH_POLL_FAIL,
+  /* GET_CHOICES_SUCCESS,
+  GET_CHOICES_FAIL */
 } from "./types"
 
 export const get_polls_list = () => async dispatch => {
@@ -150,6 +152,34 @@ export const get_poll = (slug) => async dispatch => {
     });
   }
 };
+
+/* export const get_choices = (slug) => async dispatch => {
+
+  const config = {
+    headers: {
+      'Accept': 'application/json'
+    }
+  };
+
+  try {
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/polls/${slug}`, config);
+
+    if (res.status === 200) {
+      dispatch({
+        type: GET_CHOICES_SUCCESS,
+        payload: res.data.choices
+      });
+    } else {
+      dispatch({
+        type: GET_CHOICES_FAIL
+      });
+    }
+  } catch (err) {
+    dispatch({
+      type: GET_POLL_FAIL
+    });
+  }
+}; */
 
 export const search_poll = (search_term) => async dispatch => {
 

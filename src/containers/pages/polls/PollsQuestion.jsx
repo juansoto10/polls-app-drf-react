@@ -8,7 +8,8 @@ import { get_poll } from "redux/actions/polls";
 
 function PollsQuestion({
   get_poll,
-  poll
+  poll,
+  choices
 }) {
   const params = useParams()
   const slug = params.slug
@@ -35,7 +36,10 @@ function PollsQuestion({
             </div>
 
             <div className="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto">
-              <FormChoices />
+              {/* <FormChoices /> */}
+              choices - La cosa va por aquí para renderizar las choices, choices.map(choice  choice.choice_text y choice.votes)
+              {choices[0].choice_text}
+              aaaah qué vuelta
             </div>
           </div>
         </div>
@@ -47,7 +51,8 @@ function PollsQuestion({
 }
 
 const mapStateToProps = state => ({
-  poll: state.polls.poll
+  poll: state.polls.poll,
+  choices: state.polls.choices
 })
 
 export default connect(mapStateToProps, {
