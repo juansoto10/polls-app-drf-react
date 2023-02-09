@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from apps.category.models import Category
 
@@ -52,6 +53,26 @@ class QuestionDetailView(APIView):
         
         return Response({'question': question_serializer.data,
                          'choices': choice_serializer.data}, status=status.HTTP_200_OK)
+        
+    def patch(self, request, question_slug, format=None):
+        question = get_object_or_404(Question, slug=question_slug)
+        
+        # choice = request.data
+        
+        try:
+            selected_choice = question.choice_set.get(choice_uuid=request.data['choice'])
+            selected_choice.votes += 1
+            selected_choice.save()
+            selected_choice_serializer = ChoiceSerializer(selected_choice)
+            
+            return Response({'choice': selected_choice_serializer.data}, status=status.HTTP_200_OK)
+        except (KeyError, Choice.DoesNotExist):
+            return Response({'error': 'That choice does not exist'}, status=status.HTTP_404_NOT_FOUND)
+            
+        
+        
+        
+            
     
     
 class SearchQuestionView(APIView):
