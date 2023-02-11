@@ -5,10 +5,10 @@ import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { get_poll } from "redux/actions/polls";
 import { useState } from 'react';
-/* import { redirect } from 'react-router-dom'; */
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
-function PollsQuestion({
+function PollsQuestionResult({
   get_poll,
   poll,
   choices
@@ -21,8 +21,11 @@ function PollsQuestion({
     get_poll(slug)
   }, [])
 
+
+  // Hey ojo, quitar 
   const [selectedChoice, setSelectedChoice] = useState('');
 
+  // Hey ojo, quitar 
   const onSubmit = async (e) => {
     const config = {
       headers: {
@@ -38,7 +41,7 @@ function PollsQuestion({
   
       
       console.log(response.data);
-      window.location.href = `/polls/question/${slug}/results`;
+      /* window.location.href = '/polls/question/${slug}/results'; */
     } catch (error) {
       console.error(error);
     }
@@ -62,38 +65,34 @@ function PollsQuestion({
               </h1>
             </div>
 
-            <div className="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto flex">
-
-              <form onSubmit={async e => onSubmit(e)} className="w-full flex flex-wrap justify-center items-center">
+            <div className="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto flex flex-wrap">
+              <ul className="relative flex flex-wrap justify-center items-center">
                 {
                   choices.map(choice => (
-                    <div className="relative mb-3 w-1/2 flex justify-center items-center">
-                      <input
-                        id={choice.choice_uuid}
-                        name="choice"
-                        className="block text-sm sm:text-sm mr-3"
-                        type="radio"
-                        value={choice.choice_uuid}
-                        onChange={(e) => setSelectedChoice(e.target.value)}
-                      />
-                      <label htmlFor="choice" className="w-1/4">
-                        {choice.choice_text}
-                      </label>
-                    </div>
+                    <li className="w-1/2 h-10 mb-3 flex justify-center items-center">
+                      <div className="w-full flex justify-center items-center">
+                        <p className="w-2/3">{`${choice.choice_text}: ${choice.votes} votes.`}</p>
+                      </div>
+                    </li>
                   ))
                 }
+              </ul>
 
-                <div className="w-1/2 flex justify-center items-center">
-                  <button
-                    type="submit"
-                    className="my-4 px-6 py-2 h-18 sm:h-12 uppercase text-xl font-semibold tracking-wider border-2 border-black bg-teal-400 text-black items-center leading-11 hover:bg-purple hover:text-white text-center"
-                  >
-                    Vote
-                  </button>
-                </div>
-                
-              </form>
+              <div className="w-full h-24 flex flex-row justify-center items-center">
+                <Link
+                  to="/polls"
+                  className="no-underline w-1/3 h-full mr-4 mt-3 px-6 py-2 h-18 uppercase text-xl font-semibold tracking-wider border-2 border-black bg-teal-400 text-black items-center leading-10 hover:bg-purple hover:text-white text-center content-center"
+                >
+                  Go back to Questions
+                </Link>
 
+                <Link
+                  to={`/polls/question/${slug}`}
+                  className="no-underline w-1/3 h-full mt-3 px-6 py-7 h-18 uppercase text-xl font-semibold tracking-wider border-2 border-black bg-teal-400 text-black items-center leading-10 hover:bg-purple hover:text-white text-center content-center"
+                >
+                  Vote again
+                </Link>
+              </div>
             </div>
 
           </div>
@@ -112,4 +111,4 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, {
   get_poll
-})(PollsQuestion)
+})(PollsQuestionResult)

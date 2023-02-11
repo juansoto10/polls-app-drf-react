@@ -12,6 +12,7 @@ import PollsCategory from 'containers/pages/polls/category/PollsCategory';
 import Search from 'containers/pages/Search';
 import Categories from 'containers/pages/category/Categories';
 import About from 'containers/pages/About';
+import PollsQuestionResult from 'containers/pages/polls/PollsQuestionResult';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
 
           <Route path="/polls" element={<Polls/>} />
           <Route path="/polls/question/:slug" element={<PollsQuestion />} />
+          <Route path="/polls/question/:slug/results" element={<PollsQuestionResult />} />
           <Route path="/polls/categories/:category_id" element={<PollsCategory />} />
           <Route path="/search/:term" element={<Search />}/>
 

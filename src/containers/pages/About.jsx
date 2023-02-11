@@ -8,8 +8,8 @@ function About({
   return (
     <FullWidthLayout>
       <div className="flex flex-col justify-center items-center w-screen h-fit bg-white p-8 pb-0">
-        <div className="flex flex-col justify-center items-center">
-          <h2 className="text-6xl font-bold text-purple w-fit mb-10 drop-shadow-lg text-center">
+        <div className="flex flex-col justify-center items-center w-3/4">
+          <h2 className="text-6xl font-bold text-purple w-fit mb-10 mt-3 drop-shadow-lg text-center">
             About the creator
           </h2>
           <p className="text-xl lg:text-2xl font-semibold w-fit md:w-4/5 lg:w-3/4 mb-12">
