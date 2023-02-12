@@ -68,7 +68,7 @@ function Footer() {
     <footer className="bg-white" aria-labelledby="footer-heading">
       <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:py-8 lg:px-8">
         
-        <div className="mt-4 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between ">
+        <div className="mt-4 border-t border-gray-200 pt-4 md:flex md:items-center md:justify-between ">
           <div className="flex space-x-6 md:order-2">
             {navigation.social.map((item) => (
               <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-500">

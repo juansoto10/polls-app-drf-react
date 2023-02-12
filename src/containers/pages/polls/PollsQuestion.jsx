@@ -48,7 +48,7 @@ function PollsQuestion({
     <FullWidthLayout>
       {
         poll ?
-        <div className="relative py-16 bg-white overflow-hidden">
+        <div className="relative pt-14 pb-6 bg-white overflow-hidden">
           <div className="relative px-4 sm:px-6 lg:px-8">
 
             <div className="text-lg max-w-prose mx-auto">
@@ -56,7 +56,7 @@ function PollsQuestion({
                 <span className="block text-base text-center text-green drop-shadow-lg font-semibold tracking-wide uppercase">
                 {poll.category.name}
                 </span>
-                <span className="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-purple sm:text-4xl">
+                <span className="mt-2 mb-10 block text-3xl text-center leading-8 font-extrabold tracking-tight text-purple sm:text-4xl">
                 {poll.question_text}
                 </span>
               </h1>
@@ -64,10 +64,10 @@ function PollsQuestion({
 
             <div className="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto flex">
 
-              <form onSubmit={async e => onSubmit(e)} className="w-full flex flex-wrap justify-center items-center">
+              <form onSubmit={async e => onSubmit(e)} className="w-full flex flex-wrap justify-start items-center">
                 {
                   choices.map(choice => (
-                    <div className="relative mb-3 w-1/2 flex justify-center items-center">
+                    <div className="relative mb-3 w-full sm:w-1/2 flex justify-center items-center">
                       <input
                         id={choice.choice_uuid}
                         name="choice"
@@ -83,10 +83,10 @@ function PollsQuestion({
                   ))
                 }
 
-                <div className="w-1/2 flex justify-center items-center">
+                <div className="w-full flex justify-center items-center">
                   <button
                     type="submit"
-                    className="my-4 px-6 py-2 h-18 sm:h-12 uppercase text-xl font-semibold tracking-wider border-2 border-black bg-teal-400 text-black items-center leading-11 hover:bg-purple hover:text-white text-center"
+                    className="w-1/4 my-6 px-6 py-2 h-18 sm:h-12 uppercase text-xl font-semibold tracking-wider border-2 border-black bg-teal-400 text-black items-center leading-11 hover:bg-purple hover:text-white text-center"
                   >
                     Vote
                   </button>
