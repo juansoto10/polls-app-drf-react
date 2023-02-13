@@ -8,7 +8,7 @@ function About({
   return (
     <FullWidthLayout>
       <div className="flex flex-col justify-center items-center w-screen h-fit bg-white p-8 pb-0">
-        <div className="flex flex-col justify-center items-center w-3/4">
+        <div className="flex flex-col justify-center items-center w-5/6">
           <h2 className="text-6xl font-bold text-purple w-fit mb-10 mt-3 drop-shadow-lg text-center">
             About the creator
           </h2>
@@ -21,7 +21,7 @@ function About({
       
         <div className="flex flex-col justify-center items-center" >
           <img
-            className="block h-72 rounded-full mb-12"
+            className="block h-64 rounded-full mb-12"
             src="https://i.postimg.cc/SQzGJxzp/jp-polls-app.png"
             alt="Logo"
           />

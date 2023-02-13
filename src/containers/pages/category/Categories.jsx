@@ -3,6 +3,7 @@ import Header from "components/polls/Header";
 import FullWidthLayout from "hocs/layouts/FullWidthLayout";
 import { useEffect } from "react";
 import { connect } from "react-redux";
+import Footer from "components/navigation/Footer";
 
 
 function Categories({

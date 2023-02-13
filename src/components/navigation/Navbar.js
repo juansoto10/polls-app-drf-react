@@ -52,9 +52,9 @@ function Navbar() {
                 <div className="flex-shrink-0 flex items-center">
                   <NavLink to="/polls">
                     <img
-                      className="block h-10 w-auto rounded-full"
+                      className="block h-12 w-auto rounded-full"
                       src="https://i.postimg.cc/vTQHFmJ6/tech1.png"
-                      alt="Logo"
+                      alt="Logo Valkau Polls"
                     />
                   </NavLink>
                 </div>

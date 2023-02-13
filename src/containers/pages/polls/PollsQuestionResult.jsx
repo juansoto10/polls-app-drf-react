@@ -4,8 +4,6 @@ import { useEffect } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { get_poll } from "redux/actions/polls";
-import { useState } from 'react';
-import axios from 'axios';
 import { Link } from "react-router-dom";
 
 function PollsQuestionResult({
@@ -21,31 +19,7 @@ function PollsQuestionResult({
     get_poll(slug)
   }, [])
 
-
-  // Hey ojo, quitar 
-  const [selectedChoice, setSelectedChoice] = useState('');
-
-  // Hey ojo, quitar 
-  const onSubmit = async (e) => {
-    const config = {
-      headers: {
-        'Accept': 'application/json'
-      },
-      choice: selectedChoice
-    };
-
-    e.preventDefault();
-  
-    try {
-      const response = await axios.patch(`${process.env.REACT_APP_API_URL}/api/polls/${slug}`, config);
-  
-      
-      console.log(response.data);
-      /* window.location.href = '/polls/question/${slug}/results'; */
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  let totalVotes = choices ? choices.reduce((sum, choice) => sum + choice.votes, 0) : 0;
 
   return (
     <FullWidthLayout>
@@ -59,10 +33,13 @@ function PollsQuestionResult({
                 <span className="block text-base text-center text-green drop-shadow-lg font-semibold tracking-wide uppercase">
                 {poll.category.name}
                 </span>
-                <span className="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-purple sm:text-4xl">
+                <span className="mt-2 mb-8 block text-3xl text-center leading-8 font-extrabold tracking-tight text-purple sm:text-4xl">
                 {poll.question_text}
                 </span>
               </h1>
+              <p className="text-gray-500 prose-lg text-center">
+                Thank you for voting, here are the results:
+              </p>
             </div>
 
             <div className="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto flex flex-wrap">
@@ -71,7 +48,7 @@ function PollsQuestionResult({
                   choices.map(choice => (
                     <li className="w-full sm:w-1/2 h-10 mb-3 flex justify-center items-center">
                       <div className="w-full flex justify-center items-center">
-                        <p className="w-4/5 s:w-2/3">{`${choice.choice_text}: ${choice.votes} votes.`}</p>
+                        <p className="w-5/6 sm:w-full">{`${choice.choice_text}: ${choice.votes} votes (${(choice.votes / totalVotes * 100).toFixed(2)}%)`}</p>
                       </div>
                     </li>
                   ))

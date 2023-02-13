@@ -5,7 +5,7 @@ from .models import Question, Choice
 
 class ChoiceInline(admin.TabularInline):
     model = Choice
-    extra = 18
+    extra = 4
 
 
 class QuestionAdmin(admin.ModelAdmin):

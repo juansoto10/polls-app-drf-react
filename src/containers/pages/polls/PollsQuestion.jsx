@@ -86,7 +86,7 @@ function PollsQuestion({
                 <div className="w-full flex justify-center items-center">
                   <button
                     type="submit"
-                    className="w-1/4 my-6 px-6 py-2 h-18 sm:h-12 uppercase text-xl font-semibold tracking-wider border-2 border-black bg-teal-400 text-black items-center leading-11 hover:bg-purple hover:text-white text-center"
+                    className="w-fit my-6 px-6 py-2 h-18 sm:h-12 uppercase text-xl font-semibold tracking-wider border-2 border-black bg-teal-400 text-black items-center leading-11 hover:bg-purple hover:text-white text-center"
                   >
                     Vote
                   </button>

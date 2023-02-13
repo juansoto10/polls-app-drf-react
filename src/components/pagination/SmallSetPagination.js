@@ -8,27 +8,29 @@ function SmallSetPagination({ get_polls_list_page, polls_list, count }) {
   const [currentPage, setCurrentPage] = useState(1);
 
   const visitPage = (page) => {
-      // window.scrollTo(0, 0);
-      setCurrentPage(page);
-      setActive(page);
-      get_polls_list_page(page)
+    window.scrollTo(0, 0);
+    setCurrentPage(page);
+    setActive(page);
+    get_polls_list_page(page)
+    console.log(page)
   }
   
   const previous_number = () => {
-    // window.scrollTo(0, 0);
-      if (currentPage !== 1) {
-          setCurrentPage(currentPage - 1);
-          setActive(currentPage - 1);
-          get_polls_list_page(currentPage - 1)
-      }
+    if (currentPage > 1) {
+      window.scrollTo(0, 0);
+      setCurrentPage(currentPage - 1);
+      setActive(currentPage - 1);
+      get_polls_list_page(currentPage - 1)
+    }
   };
 
   const next_number = () => {
-    /* window.scrollTo(0, 0); */
-    if (currentPage !== Math.ceil(polls_list.length / 3)) {
-        setCurrentPage(currentPage + 1);
-        setActive(currentPage + 1);
-        get_polls_list_page(currentPage + 1)
+    
+    if (currentPage !== Math.ceil(count / listingsPerPage)) {
+      window.scrollTo(0, 0);
+      setCurrentPage(currentPage + 1);
+      setActive(currentPage + 1);
+      get_polls_list_page(currentPage + 1)
     }
   };
 
