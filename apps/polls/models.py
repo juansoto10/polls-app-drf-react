@@ -15,7 +15,7 @@ def question_directory_path(instance, filename):
 # the same with choice_uuid for the model Choice !!!!! IMPORTANT !!!!
 
 class Question(models.Model):
-    question_uuid = models.UUIDField(default=uuid.uuid4, unique=True)
+    question_uuid = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True)
     question_text = models.CharField(max_length=280)
     slug =          models.SlugField(unique=True)
     thumbnail =     models.ImageField(upload_to=question_directory_path)
@@ -41,7 +41,7 @@ class Question(models.Model):
 
 
 class Choice(models.Model):
-    choice_uuid =   models.UUIDField(default=uuid.uuid4, unique=True)
+    choice_uuid =   models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True)
     question =      models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text =   models.CharField(max_length=220)
     votes =         models.IntegerField(default=0)
