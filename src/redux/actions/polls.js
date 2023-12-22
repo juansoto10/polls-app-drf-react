@@ -198,7 +198,9 @@ export const search_poll = (search_term) => async dispatch => {
         payload: res.data
       });
     } else {
-      dispatch({      });
+      dispatch({
+        type: GET_SEARCH_POLL_FAIL
+      });
     }
   } catch (err) {
     dispatch({
